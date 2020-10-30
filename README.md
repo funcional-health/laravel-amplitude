@@ -1,4 +1,9 @@
-# A Laravel package to work with Amplitude.
+# a FuncionalHealth fork from francescomalatesta
+this fork was made because of a dependency that needed to be updated.
+in addition to it, was adjusted the lifecycle to send the amplitude requests AFTER the response
+was sent to the client.
+
+## A Laravel package to work with Amplitude.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/francescomalatesta/laravel-amplitude.svg?style=flat-square)](https://packagist.org/packages/francescomalatesta/laravel-amplitude)
 [![Build Status](https://img.shields.io/travis/francescomalatesta/laravel-amplitude/master.svg?style=flat-square)](https://travis-ci.org/francescomalatesta/laravel-amplitude)

@@ -12,6 +12,8 @@ use LaravelAmplitude\Drivers\AmplitudeDriver;
 use LaravelAmplitude\Drivers\LogDriver;
 use LaravelAmplitude\Drivers\NullDriver;
 use LaravelAmplitude\Events\SendQueuedEvents;
+use LaravelAmplitude\Http\Middleware\AmplitudeLateSendMiddleware;
+use Illuminate\Contracts\Http\Kernel;
 
 class LaravelAmplitudeServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,8 @@ class LaravelAmplitudeServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/amplitude.php' => config_path('amplitude.php'),
         ]);
+        $kernel = $this->app->make(Kernel::class);
+        $kernel->pushMiddleware(AmplitudeLateSendMiddleware::class);
     }
 
     /**
@@ -45,13 +49,13 @@ class LaravelAmplitudeServiceProvider extends ServiceProvider
 
         /** @var Dispatcher $eventDispatcher */
         $eventDispatcher = app()->make(Dispatcher::class);
-        $eventDispatcher->listen(SendQueuedEvents::class, function() {
+        $eventDispatcher->listen(SendQueuedEvents::class, function () {
             /** @var Amplitude $amplitude */
             $amplitude = app()->make(Amplitude::class);
             $amplitude->sendQueuedEvents();
         });
 
-        $eventDispatcher->listen([RequestHandled::class, CommandFinished::class], function() {
+        $eventDispatcher->listen([CommandFinished::class], function () {
             event(new SendQueuedEvents());
         });
     }
