@@ -1,5 +1,5 @@
 {
-    "name": "francescomalatesta/laravel-amplitude",
+    "name": "funcional-health/laravel-amplitude",
     "description": "A Laravel package to work with Amplitude.",
     "keywords": [
         "laravel",
@@ -7,7 +7,7 @@
         "package",
         "php"
     ],
-    "homepage": "https://github.com/francescomalatesta/laravel-amplitude",
+    "homepage": "https://github.com/funcional-health/laravel-amplitude",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -15,12 +15,17 @@
             "name": "Francesco Malatesta",
             "email": "hellofrancesco@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Rodrigo Tenorio",
+            "email": "rtenorio@funcionalcorp.com.br",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.1",
         "illuminate/support": "^6.0|^7.0",
-        "zumba/amplitude-php": "^1.0"
+        "funcional-health/amplitude-php": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0|^5.0",
@@ -39,7 +44,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
@@ -53,5 +57,11 @@
                 "Amplitude": "LaravelAmplitude\\Facades\\Amplitude"
             }
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/funcional-health/amplitude-php"
+        }
+    ]
 }
