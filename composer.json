@@ -25,7 +25,7 @@
     "require": {
         "php": "^7.1",
         "illuminate/support": "^6.0|^7.0",
-        "funcional-health/amplitude-php": "^1.0.2"
+        "funcional-health/amplitude-php": "1.0.2"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0|^5.0",
